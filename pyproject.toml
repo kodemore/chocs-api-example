@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "chocspetstore"
+version = "0.1.0"
+description = "Pet store app example with chocs."
+authors = [
+    "Dawid Kraczkowski <dawid.kraczkowski@gmail.com>"
+]
+license = "MIT"
+readme = "README.md"
+
+homepage = "https://github.com/kodemore/chocs-docker-example"
+repository = "https://github.com/kodemore/chocs-docker-example"
+documentation = "https://github.com/kodemore/chocs-docker-example"
+
+classifiers = [
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+# Requirements
+[tool.poetry.dependencies]
+python = "^3.7"
+bjoern = "^3.0"
+chocs = "^0.1"
+kink = "^0.1.2"
+typing_extensions = "^3.7.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.1.0"
+pytest-cov = "^2.5"
+pytest-mock = "^1.9"
+mypy = "^0.730.0"
+black = { version = "^19.3b0", python = "^3.6" }
+
