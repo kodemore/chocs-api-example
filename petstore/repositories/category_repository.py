@@ -18,10 +18,11 @@ class CategoryRepository(AbstractRepository):
         self.connection.commit()
 
     def get(self, id: int):
-        cursor = self.execute("SELECT category_id, name FROM categories WHERE category_id = ?", id)
+        cursor = self.execute(
+            "SELECT category_id, name FROM categories WHERE category_id = ?", id
+        )
         cursor.row_factory = _hydrate
         category = cursor.fetchone()
         cursor.close()
 
         return category
-

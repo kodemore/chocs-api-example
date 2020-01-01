@@ -11,7 +11,11 @@ from petstore.repositories.category_repository import CategoryRepository
 
 
 @inject()
-def _hydrate(cursor: Cursor, fields: Tuple[int, int, int, str], category_repository: CategoryRepository) -> Pet:
+def _hydrate(
+    cursor: Cursor,
+    fields: Tuple[int, int, int, str],
+    category_repository: CategoryRepository,
+) -> Pet:
     return Pet(
         id=fields[0],
         name=fields[3],
