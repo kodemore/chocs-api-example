@@ -1,3 +1,5 @@
+from json import dumps as dump_json
+
 from chocs import HttpRequest
 from chocs import HttpResponse
 from chocs import HttpStatus
@@ -5,12 +7,11 @@ from chocs import router
 from chocs import serve
 from kink import di
 from kink import inject
-from json import dumps as dump_json
 
-from petstore.db import create_database
+from petstore import create_database
 from petstore.entities import Pet
-from petstore.repositories.pet_repository import PetRepository
-from petstore.repositories.category_repository import CategoryRepository
+from petstore.repositories import CategoryRepository
+from petstore.repositories import PetRepository
 
 create_database(di["database_path"], di["database_schema"])
 

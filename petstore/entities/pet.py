@@ -1,20 +1,7 @@
-from enum import IntEnum
-
 from gata import DataClass
 
-
-class Category(DataClass):
-    id: int = 0
-    name: str
-
-    def __init__(self, name: str, id: int = 0):
-        self.name = name
-        self.id = id
-
-
-class PetStatus(IntEnum):
-    AVAILABLE = 1
-    SOLD = 2
+from .category import Category
+from .pet_status import PetStatus
 
 
 class Pet(DataClass):

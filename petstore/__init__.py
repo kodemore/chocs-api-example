@@ -20,3 +20,6 @@ def create_database(database_path: str, database_schema: str) -> None:
         cursor.executescript(sql_schema)
         connection.commit()
         connection.close()
+
+
+__all__ = ["create_database"]
