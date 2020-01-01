@@ -7,9 +7,9 @@ class Category(DataClass):
     id: int = 0
     name: str
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, id: int = 0):
         self.name = name
-        self.id = 0
+        self.id = id
 
 
 class PetStatus(IntEnum):
@@ -23,9 +23,8 @@ class Pet(DataClass):
     category: Category
     status: PetStatus
 
-    def __init__(self, name: str, category: Category, status: PetStatus):
-        self.id = 0
+    def __init__(self, name: str, category: Category, status: PetStatus, id: int = 0):
+        self.id = id
         self.name = name
         self.category = category
         self.status = status
-        self.photos = []

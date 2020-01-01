@@ -30,4 +30,14 @@ def create_pet(
     return HttpResponse(HttpStatus.OK, dump_json(pet.serialise()))
 
 
+@router.get("/pets")
+@inject()
+def list_pets(request: HttpRequest, pet_repository: PetRepository) -> HttpResponse:
+    pet_list = []
+    for pet in pet_repository.find(request.query_string):
+        pet_list.append(pet.serialise())
+
+    return HttpResponse(HttpStatus.OK, dump_json(pet_list))
+
+
 serve(host="localhost", port=8080)
