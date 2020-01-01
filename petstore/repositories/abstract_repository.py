@@ -8,7 +8,7 @@ from chocspetstore.db import get_db
 
 
 class AbstractRepository(ABC):
-    @inject(connection=get_db)
+    @inject()
     def __init__(self, connection: Connection):
         self.connection = connection
 
