@@ -1,9 +1,9 @@
-from dataclasses import dataclass
 from enum import IntEnum
-from typing import List
+
+from gata import DataClass
 
 
-class Category:
+class Category(DataClass):
     id: int = 0
     name: str
 
@@ -12,27 +12,15 @@ class Category:
         self.id = 0
 
 
-class Photo:
-    id: int = 0
-    name: str
-    url: str
-
-    def __init__(self, name: str, url: str):
-        self.id = 0
-        self.name = name
-        self.url = url
-
-
 class PetStatus(IntEnum):
     AVAILABLE = 1
     SOLD = 2
 
 
-class Pet:
+class Pet(DataClass):
     id: int = 0
     name: str
     category: Category
-    photos: List[Photo]
     status: PetStatus
 
     def __init__(self, name: str, category: Category, status: PetStatus):

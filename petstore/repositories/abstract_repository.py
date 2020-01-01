@@ -4,11 +4,8 @@ from sqlite3 import Cursor
 
 from kink import inject
 
-from chocspetstore.db import get_db
-
 
 class AbstractRepository(ABC):
-    @inject()
     def __init__(self, connection: Connection):
         self.connection = connection
 

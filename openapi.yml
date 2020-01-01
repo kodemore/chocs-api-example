@@ -1,0 +1,75 @@
+openapi: 3.0.0
+
+info:
+  title: Petstore
+  description: Pet store application with using chocs
+  version: 0.1.0
+
+paths:
+  /pets:
+    get:
+      summary: List all available pets
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Pet"
+
+  /pets/{id}:
+    parameters:
+      - name: id
+        in: path
+        description: Pet id
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get single pet
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pet"
+    post:
+      summary: Adds new pet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      responses:
+        '200':
+          description: Successful response
+
+
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+            - available
+            - sold
+        category:
+          $ref: "#/components/schemas/Category"
+
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+
