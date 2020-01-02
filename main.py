@@ -12,6 +12,7 @@ from petstore import create_database
 from petstore.entities import Pet
 from petstore.repositories import CategoryRepository
 from petstore.repositories import PetRepository
+from petstore.json_response import JsonResponse
 
 create_database(di["database_path"], di["database_schema"])
 
@@ -28,17 +29,13 @@ def create_pet(
     category_repository.create(pet.category)
     pet_repository.create(pet)
 
-    return HttpResponse(HttpStatus.OK, dump_json(pet.serialise()))
+    return JsonResponse(pet)
 
 
 @router.get("/pets")
 @inject()
 def list_pets(request: HttpRequest, pet_repository: PetRepository) -> HttpResponse:
-    pet_list = []
-    for pet in pet_repository.find(request.query_string):
-        pet_list.append(pet.serialise())
-
-    return HttpResponse(HttpStatus.OK, dump_json(pet_list))
+    return JsonResponse(pet_repository.find(request.query_string))
 
 
 serve(host="localhost", port=8080)
