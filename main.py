@@ -14,8 +14,6 @@ from petstore.repositories import CategoryRepository
 from petstore.repositories import PetRepository
 from petstore.json_response import JsonResponse
 
-create_database(di["database_path"], di["database_schema"])
-
 
 @router.post("/pets")
 @inject()
@@ -38,4 +36,8 @@ def list_pets(request: HttpRequest, pet_repository: PetRepository) -> HttpRespon
     return JsonResponse(pet_repository.find(request.query_string))
 
 
-serve(host="localhost", port=8080)
+if __name__ == '__main__':
+    create_database(di["database_path"], di["database_schema"])
+    serve(host="localhost", port=8080)
+
+

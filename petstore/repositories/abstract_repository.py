@@ -2,8 +2,6 @@ from abc import ABC
 from sqlite3 import Connection
 from sqlite3 import Cursor
 
-from kink import inject
-
 
 class AbstractRepository(ABC):
     def __init__(self, connection: Connection):
