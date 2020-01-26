@@ -1,12 +1,11 @@
 import sqlite3
 from os import path
-from sqlite3 import Connection
 
 from kink import di
 
 di["database_path"] = path.join(path.dirname(__file__), "data/petstore.db")
 di["database_schema"] = path.join(path.dirname(__file__), "data/schema.sql")
-di[Connection] = lambda di: sqlite3.connect(di["database_path"])
+di[sqlite3.Connection] = lambda di: sqlite3.connect(di["database_path"])
 
 
 def create_database(database_path: str, database_schema: str) -> None:

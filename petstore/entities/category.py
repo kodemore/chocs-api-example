@@ -1,10 +1,8 @@
-from gata import DataClass
+from dataclasses import dataclass
+from typing import Optional
 
 
-class Category(DataClass):
-    id: int = 0
+@dataclass()
+class Category:
     name: str
-
-    def __init__(self, name: str, id: int = 0):
-        self.name = name
-        self.id = id
+    id: Optional[int] = 0

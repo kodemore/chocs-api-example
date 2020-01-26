@@ -1,14 +1,13 @@
-from json import JSONEncoder
-from json import dumps
+from io import BytesIO
+from json import JSONEncoder, dumps
 from typing import Any
 
-from chocs import HttpResponse
-from chocs import HttpStatus
-from io import BytesIO
+from chocs import HttpResponse, HttpStatus
+from gata import serialise
 
 
 def _to_json(self, obj):
-    return getattr(obj.__class__, "serialise", _to_json.default)(obj)
+    return serialise(obj)
 
 
 _to_json.default = JSONEncoder.default  # Save unmodified default.

@@ -1,9 +1,10 @@
 from petstore.entities import Pet
 from petstore.json_response import JsonResponse
+from gata import deserialise
 
 
 def test_json_response():
-    pet = Pet.create({
+    pet = deserialise({
         "id": 1,
         "name": "Johny",
         "status": 1,
@@ -11,9 +12,9 @@ def test_json_response():
             "id": 2,
             "name": "Dogs",
         },
-    })
+    }, Pet)
 
     response = JsonResponse(pet)
 
-    assert response.body == b'{"id": 1, "name": "Johny", "category": {"id": 2, "name": "Dogs"}, "status": 1}'
+    assert response.body.read() == b'{"id": 1, "name": "Johny", "category": {"id": 2, "name": "Dogs"}, "status": 1}'
 

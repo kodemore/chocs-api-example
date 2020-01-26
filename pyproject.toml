@@ -9,10 +9,10 @@ authors = [
 [tool.poetry.dependencies]
 python = "^3.7"
 bjoern = "^3.0"
-chocs = "^0.1"
 kink = "0.2.0"
 typing_extensions = "^3.7.4"
-gata = "^0.1.0"
+gata = "^2.0.0"
+chocs = "^0.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.1.0"
@@ -20,4 +20,3 @@ pytest-cov = "^2.5"
 pytest-mock = "^1.9"
 mypy = "^0.730.0"
 black = { version = "^19.3b0", python = "^3.6" }
-
