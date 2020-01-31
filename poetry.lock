@@ -60,11 +60,11 @@ d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
 
 [[package]]
 category = "main"
-description = "Lightweight and powerful layer for building rest applications based on wsgi servers."
+description = "Lightweight and powerful wsgi rest framework for rapid building applications based on wsgi servers."
 name = "chocs"
 optional = false
 python-versions = ">=3.7,<4.0"
-version = "0.2.1"
+version = "0.2.5"
 
 [package.dependencies]
 typing_extensions = ">=3.7.4,<4.0.0"
@@ -101,7 +101,7 @@ description = "Gata is data validation and transformation library for python."
 name = "gata"
 optional = false
 python-versions = ">=3.7,<4.0"
-version = "2.1.1"
+version = "2.2.1"
 
 [package.dependencies]
 coverage = ">=4.5.4,<5.0.0"
@@ -115,7 +115,7 @@ marker = "python_version < \"3.8\""
 name = "importlib-metadata"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
-version = "1.4.0"
+version = "1.5.0"
 
 [package.dependencies]
 zipp = ">=0.5"
@@ -138,11 +138,11 @@ typing_extensions = ">=3.7.4,<4.0.0"
 [[package]]
 category = "main"
 description = "More routines for operating on iterables, beyond itertools"
-marker = "python_version < \"3.8\" or python_version > \"2.7\""
+marker = "python_version > \"2.7\""
 name = "more-itertools"
 optional = false
 python-versions = ">=3.5"
-version = "8.1.0"
+version = "8.2.0"
 
 [[package]]
 category = "dev"
@@ -352,13 +352,11 @@ marker = "python_version < \"3.8\""
 name = "zipp"
 optional = false
 python-versions = ">=3.6"
-version = "2.0.1"
-
-[package.dependencies]
-more-itertools = "*"
+version = "2.1.0"
 
 [package.extras]
 docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
+testing = ["jaraco.itertools"]
 
 [metadata]
 content-hash = "3bbc1c7522d4849e9ce59f6ed487f7076ad8fc1ae5df4323ff6ca3d28bad8f0f"
@@ -385,8 +383,8 @@ black = [
     {file = "black-19.10b0.tar.gz", hash = "sha256:c2edb73a08e9e0e6f65a0e6af18b059b8b1cdd5bef997d7a0b181df93dc81539"},
 ]
 chocs = [
-    {file = "chocs-0.2.1-py3-none-any.whl", hash = "sha256:373bcf92244afaeb0a8cff289fd04ad63e004f1c7456096c18b9b96010387dab"},
-    {file = "chocs-0.2.1.tar.gz", hash = "sha256:63b2fb8298c17af3f5abcf569e14d3dabd7ba20c78640da26f980f7c1f539748"},
+    {file = "chocs-0.2.5-py3-none-any.whl", hash = "sha256:2d09b081e25e5e1a1056d5705f41f8304e396a07b477fbb16330da359c72caad"},
+    {file = "chocs-0.2.5.tar.gz", hash = "sha256:b0571dac7b23c39c5fc678da7e3d2cfbd1a64720fe2fdecfcb1b3227d05b9c28"},
 ]
 click = [
     {file = "Click-7.0-py2.py3-none-any.whl", hash = "sha256:2335065e6395b9e67ca716de5f7526736bfa6ceead690adf616d925bdc622b13"},
@@ -431,20 +429,20 @@ coverage = [
     {file = "coverage-4.5.4.tar.gz", hash = "sha256:e07d9f1a23e9e93ab5c62902833bf3e4b1f65502927379148b6622686223125c"},
 ]
 gata = [
-    {file = "gata-2.1.1-py3-none-any.whl", hash = "sha256:424ac2d5f5a4b3bc624412ecc960d080508c3b388bba3228f8dc44bb9591d548"},
-    {file = "gata-2.1.1.tar.gz", hash = "sha256:39b5c1682ef40176ddd4ae4ba55e93046334a9e7ac15b400100caec7fb253b8f"},
+    {file = "gata-2.2.1-py3-none-any.whl", hash = "sha256:30560a1acdb9696898db5498b2a5a1eb1d4f85c3fd1a59c4de426c3c623fe78a"},
+    {file = "gata-2.2.1.tar.gz", hash = "sha256:64ca41ab304c0eb050542e95292cf856044cb5ab7b51647b5e8c608bf3d9391e"},
 ]
 importlib-metadata = [
-    {file = "importlib_metadata-1.4.0-py2.py3-none-any.whl", hash = "sha256:bdd9b7c397c273bcc9a11d6629a38487cd07154fa255a467bf704cd2c258e359"},
-    {file = "importlib_metadata-1.4.0.tar.gz", hash = "sha256:f17c015735e1a88296994c0697ecea7e11db24290941983b08c9feb30921e6d8"},
+    {file = "importlib_metadata-1.5.0-py2.py3-none-any.whl", hash = "sha256:b97607a1a18a5100839aec1dc26a1ea17ee0d93b20b0f008d80a5a050afb200b"},
+    {file = "importlib_metadata-1.5.0.tar.gz", hash = "sha256:06f5b3a99029c7134207dd882428a66992a9de2bef7c2b699b5641f9886c3302"},
 ]
 kink = [
     {file = "kink-0.2.0-py3-none-any.whl", hash = "sha256:12e54bf9b6991fb4e39707394b697e787acac9da02ff51d291cb3c448f9b293d"},
     {file = "kink-0.2.0.tar.gz", hash = "sha256:d75866d54e8fec1256b2ebd02168a708d4ed2093aa59d52ee7cdc76c82c9cc01"},
 ]
 more-itertools = [
-    {file = "more-itertools-8.1.0.tar.gz", hash = "sha256:c468adec578380b6281a114cb8a5db34eb1116277da92d7c46f904f0b52d3288"},
-    {file = "more_itertools-8.1.0-py3-none-any.whl", hash = "sha256:1a2a32c72400d365000412fe08eb4a24ebee89997c18d3d147544f70f5403b39"},
+    {file = "more-itertools-8.2.0.tar.gz", hash = "sha256:b1ddb932186d8a6ac451e1d95844b382f55e12686d51ca0c68b6f61f2ab7a507"},
+    {file = "more_itertools-8.2.0-py3-none-any.whl", hash = "sha256:5dd8bcf33e5f9513ffa06d5ad33d78f31e1931ac9a18f33d37e77a180d393a7c"},
 ]
 mypy = [
     {file = "mypy-0.730-cp35-cp35m-macosx_10_6_x86_64.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:4b2b20106973548975f0c0b1112eceb4d77ed0cafe0a231a1318f3b3a22fc795"},
@@ -576,6 +574,6 @@ wcwidth = [
     {file = "wcwidth-0.1.8.tar.gz", hash = "sha256:f28b3e8a6483e5d49e7f8949ac1a78314e740333ae305b4ba5defd3e74fb37a8"},
 ]
 zipp = [
-    {file = "zipp-2.0.1-py3-none-any.whl", hash = "sha256:e013e7800f60ec4dde789ebf4e9f7a54236e4bbf5df2a1a4e20ce9e1d9609d67"},
-    {file = "zipp-2.0.1.tar.gz", hash = "sha256:b338014b9bc7102ca69e0fb96ed07215a8954d2989bc5d83658494ab2ba634af"},
+    {file = "zipp-2.1.0-py3-none-any.whl", hash = "sha256:ccc94ed0909b58ffe34430ea5451f07bc0c76467d7081619a454bf5c98b89e28"},
+    {file = "zipp-2.1.0.tar.gz", hash = "sha256:feae2f18633c32fc71f2de629bfb3bd3c9325cd4419642b1f1da42ee488d9b98"},
 ]

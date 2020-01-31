@@ -1,7 +1,9 @@
-from petstore.db import create_database, di
-from tempfile import gettempdir
 from os import path, remove
 from sqlite3 import connect
+from tempfile import gettempdir
+
+from chinook import create_database
+from kink import di
 
 
 def test_create_database():
@@ -13,4 +15,4 @@ def test_create_database():
     connection = connect(tmp_filename)
     cursor = connection.execute("SELECT name FROM sqlite_master WHERE type='table'")
     table_list = cursor.fetchall()
-    assert len(table_list) - 1 == 5
+    assert len(table_list) - 1 == 11

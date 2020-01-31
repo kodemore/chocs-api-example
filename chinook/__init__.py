@@ -3,7 +3,7 @@ from os import path
 
 from kink import di
 
-di["database_path"] = path.join(path.dirname(__file__), "data/petstore.db")
+di["database_path"] = path.join(path.dirname(__file__), "data/chinook.db")
 di["database_schema"] = path.join(path.dirname(__file__), "data/schema.sql")
 di[sqlite3.Connection] = lambda di: sqlite3.connect(di["database_path"])
 
