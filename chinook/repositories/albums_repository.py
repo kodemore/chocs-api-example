@@ -22,12 +22,12 @@ class AlbumsRepository(AbstractRepository):
         where, limit, data = self.paginator_to_query(paginator)
 
         num_rows = self.execute(
-            f"SELECT COUNT(album_id) as num_rows, artists.name as artist_name FROM albums JOIN artists ON artists.artist_id = albums.artist_id WHERE {where}",
+            f"SELECT COUNT(album_id) as num_rows, artists.name as \"artist.name\" FROM albums JOIN artists ON artists.artist_id = albums.artist_id WHERE {where}",
             *data,
         ).fetchone()[0]
 
         paginator.total_items = num_rows
-        query = f"SELECT album_id, title, artists.artist_id, artists.name as artist_name FROM albums JOIN artists ON artists.artist_id = albums.artist_id  WHERE {where} {limit}"
+        query = f"SELECT album_id, title, artists.artist_id, artists.name as \"artist.name\" FROM albums JOIN artists ON artists.artist_id = albums.artist_id  WHERE {where} {limit}"
         cursor = self.execute(query, *data)
 
         cursor.row_factory = _hydrate
