@@ -1,1 +1,1 @@
-Petstore example
+# Chinook API
