@@ -17,7 +17,3 @@ def albums_list(request: HttpRequest, repository: AlbumsRepository) -> HttpRespo
         items.append(serialise(item))
 
     return JsonResponse({"body": items, **paginator.hateos})
-
-
-def albums_get(request: HttpRequest, repository: AlbumsRepository) -> HttpResponse:
-    
