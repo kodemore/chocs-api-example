@@ -4,7 +4,7 @@ from gata import PropertyMeta
 
 
 @dataclass
-class Artist:
+class Genre:
     name: str
     id: int = 0
 
@@ -12,4 +12,4 @@ class Artist:
         id = PropertyMeta(read_only=True)
 
 
-__all__ = ["Artist"]
+__all__ = ["Genre"]

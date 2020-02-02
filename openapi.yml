@@ -48,7 +48,7 @@ paths:
           type: string
   /albums:
     get:
-      summary: List artists
+      summary: List albums
       responses:
         '200':
           description: Successful response
@@ -61,6 +61,25 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Album"
+                  paging:
+                    $ref: '#/components/schemas/Paginator'
+                  _links:
+                    $ref: '#/components/schemas/PaginatorLinks'
+  /genres:
+    get:
+      summary: List genres
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Genre"
                   paging:
                     $ref: '#/components/schemas/Paginator'
                   _links:
@@ -93,18 +112,31 @@ components:
       properties:
         id:
           type: integer
+          readOnly: true
         name:
           type: string
-
+    Genre:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
     Album:
       type: object
       properties:
         id:
           type: integer
+          readOnly: true
         title:
           type: string
         artist:
           $ref: "#/components/schemas/Artist"
+          readOnly: true
+        artist_id:
+          type: integer
+          writeOnly: true
     Paginator:
       type: object
       properties:

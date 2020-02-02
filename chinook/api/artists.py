@@ -55,7 +55,7 @@ def artists_get(
 
 @router.delete("/artists/{id}")
 @inject()
-def artists_get(
+def artists_delete(
     request: HttpRequest, artist_repository: ArtistRepository
 ) -> HttpResponse:
     try:
@@ -70,4 +70,4 @@ def artists_get(
     return JsonResponse({"body": serialise(artist)})
 
 
-__all__ = ["artists_create", "artists_list", "artists_get"]
+__all__ = ["artists_create", "artists_list", "artists_get", "artists_delete"]

@@ -16,3 +16,6 @@ class Album:
         id = PropertyMeta(read_only=True)
         artist = PropertyMeta(read_only=True)
         artist_id = PropertyMeta(write_only=True)
+
+
+__all__ = ["Album"]

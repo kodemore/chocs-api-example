@@ -1,6 +1,6 @@
 from json import dumps, loads
 
-from chocs import Headers, HttpMethod, HttpRequest, HttpResponse, router
+from chocs import Headers, HttpMethod, HttpRequest, HttpResponse, router, QueryString
 from chocs.middleware import MiddlewarePipeline
 
 from chinook.middleware import check_json_request
@@ -13,8 +13,11 @@ def response_to_json(response: HttpResponse) -> dict:
 
 def create_json_request(method: HttpMethod, uri: str, body: dict = None) -> HttpRequest:
 
+    uri_parts = uri.split("?")
+    query_string = QueryString(uri_parts[1] if len(uri_parts) > 1 else "")
+
     request = HttpRequest(
-        method, uri, headers=Headers({"Content-Type": "application/json"})
+        method, uri_parts[0], headers=Headers({"Content-Type": "application/json"}), query_string=query_string
     )
 
     if body:

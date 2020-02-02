@@ -37,7 +37,7 @@ class AbstractRepository(ABC):
         terms = ""
         data = []
         for operation in paginator.query.operations:
-            terms += f"AND \"{operation.field}\" {QUERY_OPERATOR_TO_SQL_OPERATOR[operation.operator]} ?"
+            terms += f'AND "{operation.field}" {QUERY_OPERATOR_TO_SQL_OPERATOR[operation.operator]} ?'
             data.append(operation.value)
 
         where = f" 1 {terms}"
@@ -45,7 +45,7 @@ class AbstractRepository(ABC):
         if paginator.query.sort:
             for sort_option in paginator.query.sort:
                 sort_options.append(
-                    f"\"{sort_option.field}\" {SORT_DIRECTION_TO_SQL[sort_option.direction]}"
+                    f'"{sort_option.field}" {SORT_DIRECTION_TO_SQL[sort_option.direction]}'
                 )
 
             where += "ORDER BY " + ", ".join(sort_options)

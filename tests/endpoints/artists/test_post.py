@@ -9,7 +9,3 @@ def test_create_artist(api_client) -> None:
     body = response_to_json(response)
 
     assert "id" in body
-
-
-def test_get_pet(api_client) -> None:
-    pass
