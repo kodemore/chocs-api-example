@@ -14,5 +14,5 @@ poetry shell
 python main.py
 ```
 
-Service should be running on localhost under port `5000`. To change the port simply setup
-env variable `$PORT` to desired port.
+Service should be running on localhost under port `5000`. To change the port simply set
+env variable `$PORT` to desired value.
