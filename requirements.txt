@@ -1,5 +1,5 @@
-bjoern
-typing_extensions
-kink
-gata
-chocs
+bjoern>=3.0
+kink>=0.2.0
+typing_extensions>=3.7.4
+gata>=2.0.0
+chocs>=0.2.0

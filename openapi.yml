@@ -1,75 +1,146 @@
 openapi: 3.0.0
 
 info:
-  title: Petstore
-  description: Pet store application with using chocs
-  version: 0.1.0
+  title: Chocs API with chinook DB
+  description: Showcase app of chocs, kink and gata libraries
+  version: 0.2.0
 
 paths:
-  /pets:
+  /artists:
     get:
-      summary: List all available pets
+      summary: List artists
       responses:
         '200':
           description: Successful response
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Pet"
-
-  /pets/{id}:
+                type: object
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Artist"
+                  paging:
+                    $ref: '#/components/schemas/Paginator'
+                  _links:
+                    $ref: '#/components/schemas/PaginatorLinks'
     parameters:
-      - name: id
-        in: path
-        description: Pet id
-        required: true
+      - name: $limit
+        in: query
+        description: Limit mount of records
+        required: false
         schema:
           type: integer
+          default: 10
+      - name: $offset
+        in: query
+        description: Sets offset for resultset
+        required: false
+        schema:
+          type: integer
+          default: 0
+      - name: $sort
+        in: query
+        description: Comma separated fields, used to sort resultset.
+        required: false
+        schema:
+          type: string
+  /albums:
     get:
-      summary: Get single pet
+      summary: List artists
       responses:
         '200':
           description: Successful response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Pet"
-    post:
-      summary: Adds new pet
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Pet"
-      responses:
-        '200':
-          description: Successful response
-
-
+                type: object
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Album"
+                  paging:
+                    $ref: '#/components/schemas/Paginator'
+                  _links:
+                    $ref: '#/components/schemas/PaginatorLinks'
+    parameters:
+      - name: $limit
+        in: query
+        description: Limit mount of records
+        required: false
+        schema:
+          type: integer
+          default: 10
+      - name: $offset
+        in: query
+        description: Sets offset for resultset
+        required: false
+        schema:
+          type: integer
+          default: 0
+      - name: $sort
+        in: query
+        description: Comma separated fields, used to sort resultset.
+        required: false
+        schema:
+          type: string
 components:
   schemas:
-    Pet:
+    Artist:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-        status:
+
+    Album:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        artist:
+          $ref: "#/components/schemas/Artist"
+    Paginator:
+      type: object
+      properties:
+        offset:
+          type: integer
+          default: 0
+        limit:
+          type: integer
+          default: 10
+        total_items:
+          type: integer
+    PaginatorLinks:
+      type: array
+      items:
+        $ref: '#/components/schemas/PaginatorHateos'
+
+    PaginatorHateos:
+      type: object
+      properties:
+        rel:
+          type: string
+          description: location type
+          enum:
+            - "self"
+            - "previous"
+            - "next"
+        href:
+          type: string
+          description: url address to the location
+          example: "/resource"
+        method:
           type: string
           enum:
-            - available
-            - sold
-        category:
-          $ref: "#/components/schemas/Category"
+            - "GET"
+            - "POST"
+            - "PUT"
+            - "DELETE"
 
-    Category:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
 

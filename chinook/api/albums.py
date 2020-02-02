@@ -17,3 +17,6 @@ def albums_list(request: HttpRequest, repository: AlbumsRepository) -> HttpRespo
         items.append(serialise(item))
 
     return JsonResponse({"body": items, **paginator.hateos})
+
+
+__all__ = ["albums_list"]
